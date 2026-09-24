@@ -4,93 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dulce Travesía - Repostería Artesanal</title>
-    <style>
-        /* ==========================================================================
-           PALETA DE COLORES ESTRICTA (Basada en la imagen proporcionada)
-           ========================================================================== */
-        :root {
-            --rosa-claro: #F9E8E4;
-            --durazno: #F7CDBA;
-            --rosa-empolvado: #E9A89B;
-            --verde-claro: #9CAF98;
-            --verde-salvia: #8FAE8A;
-            --marron-claro: #A67C52;
-            --chocolate: #6B4E3D;
-            --blanco: #FFFFFF;
-            --crema: #F6F6F2;
-        }
-
-        /* RESET & GLOBALES */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--crema); color: var(--chocolate); line-height: 1.6; }
-        h1, h2, h3, h4 { color: var(--chocolate); text-align: center; }
-        a { text-decoration: none; color: inherit; }
-        
-        /* BOTONES */
-        .btn {
-            display: inline-block; padding: 15px 25px; border-radius: 30px; font-weight: bold; text-transform: uppercase;
-            cursor: pointer; transition: all 0.3s ease; border: none; font-size: 14px; text-align: center;
-        }
-        .btn-rosa { background-color: var(--rosa-empolvado); color: var(--blanco); }
-        .btn-rosa:hover { background-color: var(--chocolate); color: var(--rosa-claro); }
-        .btn-verde { background-color: var(--verde-salvia); color: var(--blanco); }
-        .btn-verde:hover { background-color: var(--chocolate); color: var(--verde-claro); }
-
-        /* NAVEGACIÓN */
-        header { background-color: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(107, 78, 61, 0.1); }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { font-weight: bold; color: var(--marron-claro); transition: 0.3s; }
-        .nav-links a:hover { color: var(--verde-salvia); }
-        .logo-container { display: flex; flex-direction: column; align-items: center; width: 120px;}
-
-        /* HERO SECTION */
-        .hero { background-color: var(--rosa-claro); padding: 80px 5%; text-align: center; border-bottom: 5px solid var(--durazno); }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; color: var(--marron-claro); max-width: 700px; margin: 0 auto 30px auto; }
-        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-
-        /* SECCIONES COMUNES */
-        section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: 2rem; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
-        .section-title::after { content: ''; width: 60px; height: 3px; background-color: var(--verde-salvia); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-
-        /* SOBRE NOSOTROS */
-        .about-box { background-color: var(--blanco); padding: 40px; border-radius: 15px; border: 2px dashed var(--verde-claro); text-align: center; }
-
-        /* GRID 2 COLUMNAS (Para Revendedores e Instituciones) */
-        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 40px; }
-        @media (max-width: 768px) { .split-section { grid-template-columns: 1fr; } }
-        
-        .info-card { background-color: var(--blanco); padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(166, 124, 82, 0.1); border-top: 5px solid var(--rosa-empolvado); }
-        .info-card h3 { color: var(--rosa-empolvado); margin-bottom: 15px; }
-        .info-card ul { list-style: none; }
-        .info-card ul li { margin-bottom: 10px; padding-left: 20px; position: relative; }
-        .info-card ul li::before { content: '♥'; position: absolute; left: 0; color: var(--rosa-empolvado); }
-
-        /* EJEMPLOS Y CALCULADORA */
-        .calc-box { background-color: var(--durazno); padding: 25px; border-radius: 10px; text-align: center; margin-top: 20px; }
-        .calc-box input { width: 100px; padding: 10px; text-align: center; font-size: 1.2rem; border: 2px solid var(--chocolate); border-radius: 5px; margin: 10px 0; color: var(--chocolate); font-weight: bold; }
-        .calc-result { font-size: 1.5rem; font-weight: bold; color: var(--chocolate); background: var(--blanco); padding: 10px; border-radius: 5px; margin-top: 10px;}
-
-        /* FORMULARIOS */
-        .form-container { background-color: var(--blanco); padding: 30px; border-radius: 10px; border: 1px solid var(--verde-claro); }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: var(--marron-claro); font-size: 0.9rem; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--marron-claro); border-radius: 5px; font-family: inherit; background-color: var(--crema); color: var(--chocolate); }
-        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--verde-salvia); background-color: var(--blanco); }
-
-        /* TARJETAS DE OBJETIVOS (ESCUELAS) */
-        .objetivos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
-        .obj-card { background-color: var(--crema); border: 1px solid var(--verde-salvia); padding: 15px; border-radius: 8px; text-align: center; font-size: 0.9rem; font-weight: bold; color: var(--verde-salvia); }
-
-        /* FAQ */
-        .faq-item { background: var(--blanco); margin-bottom: 10px; border-radius: 5px; border-left: 4px solid var(--marron-claro); padding: 15px; }
-        .faq-item h4 { text-align: left; margin-bottom: 5px; color: var(--chocolate); }
-        .faq-item p { font-size: 0.9rem; color: var(--marron-claro); }
-
-        /* FOOTER */
-        footer { background-color: var(--chocolate); color: var(--rosa-claro); text-align: center; padding: 30px 5%; margin-top: 40px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -99,7 +13,6 @@
         <div class="logo-container">
             <!-- LOGO SVG CODIFICADO ESTRICTAMENTE CON LA PALETA DE LA IMAGEN -->
             <svg viewBox="0 0 200 200" width="100%" height="100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Texto superior en curva -->
                 <path id="text-path-top" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" />
                 <text fill="#6B4E3D" font-family="serif" font-weight="900" font-size="20">
                     <textPath href="#text-path-top" startOffset="50%" text-anchor="middle">MI DULCE TRAVESÍA</textPath>
@@ -110,43 +23,34 @@
                     <textPath href="#text-path-sub" startOffset="50%" text-anchor="middle">REPOSTERÍA ARTESANAL</textPath>
                 </text>
 
-                <!-- Circulos de la brújula -->
                 <circle cx="100" cy="115" r="45" fill="none" stroke="#A67C52" stroke-width="1.5" stroke-dasharray="4 4" />
                 <circle cx="100" cy="115" r="35" fill="none" stroke="#A67C52" stroke-width="0.5" />
                 
-                <!-- Letras Cardinales -->
                 <text x="96" y="65" fill="#6B4E3D" font-family="serif" font-weight="bold" font-size="14">N</text>
                 <text x="96" y="178" fill="#6B4E3D" font-family="serif" font-weight="bold" font-size="14">S</text>
                 <text x="152" y="120" fill="#6B4E3D" font-family="serif" font-weight="bold" font-size="14">E</text>
                 <text x="35" y="120" fill="#6B4E3D" font-family="serif" font-weight="bold" font-size="14">W</text>
 
-                <!-- Rosa de los vientos (Estrella central) -->
                 <g transform="translate(100, 115)">
-                    <!-- Puntas oscuras -->
                     <polygon points="0,-35 6,-8 35,0 6,8 0,35 -6,8 -35,0 -6,-8" fill="#6B4E3D" />
-                    <!-- Puntas claras -->
                     <polygon points="0,-35 0,0 -6,-8" fill="#A67C52" />
                     <polygon points="35,0 0,0 6,-8" fill="#A67C52" />
                     <polygon points="0,35 0,0 6,8" fill="#A67C52" />
                     <polygon points="-35,0 0,0 -6,8" fill="#A67C52" />
-                    <!-- Puntas diagonales -->
                     <polygon points="0,0 20,-20 8,-6 6,-8" fill="#A67C52" />
                     <polygon points="0,0 20,20 8,6 6,8" fill="#A67C52" />
                     <polygon points="0,0 -20,20 -8,6 -6,8" fill="#A67C52" />
                     <polygon points="0,0 -20,-20 -8,-6 -6,-8" fill="#A67C52" />
-                    <!-- Centro -->
                     <circle cx="0" cy="0" r="5" fill="#FFFFFF" stroke="#6B4E3D" stroke-width="2"/>
                 </g>
 
-                <!-- Hojas / Ramas laterales -->
                 <g fill="#8FAE8A" stroke="#8FAE8A" stroke-width="1">
-                    <!-- Rama Izquierda -->
                     <path d="M 30 160 Q 15 130 25 100" fill="none" stroke-width="2"/>
                     <path d="M 23 150 Q 10 145 15 135 Q 25 140 23 150" />
                     <path d="M 20 135 Q 5 130 10 120 Q 20 125 20 135" />
                     <path d="M 22 120 Q 10 115 15 105 Q 25 110 22 120" />
                     <path d="M 25 100 Q 20 90 30 85 Q 35 95 25 100" />
-                    <!-- Rama Derecha -->
+                    
                     <path d="M 170 160 Q 185 130 175 100" fill="none" stroke-width="2"/>
                     <path d="M 177 150 Q 190 145 185 135 Q 175 140 177 150" />
                     <path d="M 180 135 Q 195 130 190 120 Q 180 125 180 135" />
@@ -154,7 +58,6 @@
                     <path d="M 175 100 Q 180 90 170 85 Q 165 95 175 100" />
                 </g>
                 
-                <!-- Corazones -->
                 <g fill="#E9A89B">
                     <path d="M 30,85 A 3,3 0 0,1 35,85 A 3,3 0 0,1 40,85 Q 40,90 35,95 Q 30,90 30,85 z" />
                     <path d="M 160,85 A 3,3 0 0,1 165,85 A 3,3 0 0,1 170,85 Q 170,90 165,95 Q 160,90 160,85 z" />
@@ -196,7 +99,6 @@
         <p style="text-align: center; max-width: 800px; margin: 0 auto;">Dulce Travesía cuenta con un sistema de venta mayorista pensado para personas que quieran comercializar nuestros productos dentro de su entorno.</p>
         
         <div class="split-section">
-            <!-- Info Revendedor -->
             <div>
                 <div class="info-card">
                     <h3>¿Cómo funciona?</h3>
@@ -218,17 +120,19 @@
                 </div>
             </div>
 
-            <!-- Formulario Revendedor -->
             <div class="form-container">
                 <h3 style="margin-bottom: 20px; color: var(--marron-claro);">Comenzá a revender</h3>
-                <form id="form-revendedor" onsubmit="enviarRevendedor(event)">
-                    <div class="form-group"><label>Nombre y Apellido</label><input type="text" required></div>
-                    <div class="form-group"><label>Edad</label><input type="number" required></div>
-                    <div class="form-group"><label>WhatsApp</label><input type="tel" required></div>
-                    <div class="form-group"><label>Localidad</label><input type="text" required></div>
+                <form action="https://formsubmit.co/xadilorezo@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="NUEVA SOLICITUD: Revendedor">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <div class="form-group"><label>Nombre y Apellido</label><input type="text" name="Nombre" required></div>
+                    <div class="form-group"><label>Edad</label><input type="number" name="Edad" required></div>
+                    <div class="form-group"><label>WhatsApp</label><input type="tel" name="Telefono" required></div>
+                    <div class="form-group"><label>Localidad</label><input type="text" name="Localidad" required></div>
                     <div class="form-group">
                         <label>¿Dónde pensás vender?</label>
-                        <select required>
+                        <select name="Lugar_de_Venta" required>
                             <option value="">Seleccionar...</option>
                             <option>Trabajo</option><option>Escuela / Universidad</option>
                             <option>Barrio</option><option>Familia</option>
@@ -237,7 +141,7 @@
                     </div>
                     <div class="form-group">
                         <label>Bandejas estimadas por semana</label>
-                        <select required>
+                        <select name="Cantidad_Estimada" required>
                             <option>6 - 10</option><option>11 - 20</option>
                             <option>21 - 30</option><option>Más de 30</option>
                         </select>
@@ -262,7 +166,6 @@
         </div>
 
         <div class="split-section">
-            <!-- Calculadora Interactiva Instituciones -->
             <div>
                 <div class="info-card" style="border-top-color: var(--verde-salvia);">
                     <h3 style="color: var(--verde-salvia);">Calculadora de Recaudación</h3>
@@ -280,22 +183,24 @@
                 </div>
             </div>
 
-            <!-- Formulario Institución -->
             <div class="form-container">
                 <h3 style="margin-bottom: 20px; color: var(--verde-salvia);">Registrar Proyecto</h3>
-                <form id="form-institucion" onsubmit="enviarInstitucion(event)">
-                    <div class="form-group"><label>Nombre de la Institución</label><input type="text" required></div>
+                <form action="https://formsubmit.co/xadilorezo@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="NUEVA SOLICITUD: Proyecto de Recaudación">
+                    <input type="hidden" name="_captcha" value="false">
+                
+                    <div class="form-group"><label>Nombre de la Institución</label><input type="text" name="Institucion" required></div>
                     <div class="form-group">
                         <label>Tipo</label>
-                        <select required>
+                        <select name="Tipo_Institucion" required>
                             <option>Escuela Primaria</option><option>Escuela Secundaria</option>
                             <option>Club</option><option>Comisión de Padres</option><option>Otro</option>
                         </select>
                     </div>
-                    <div class="form-group"><label>Nombre del Responsable</label><input type="text" required></div>
-                    <div class="form-group"><label>WhatsApp</label><input type="tel" required></div>
-                    <div class="form-group"><label>¿Para qué quieren recaudar?</label><input type="text" required placeholder="Ej: Viaje de egresados"></div>
-                    <div class="form-group"><label>Participantes estimados</label><input type="number" required></div>
+                    <div class="form-group"><label>Nombre del Responsable</label><input type="text" name="Responsable" required></div>
+                    <div class="form-group"><label>WhatsApp</label><input type="tel" name="Telefono" required></div>
+                    <div class="form-group"><label>¿Para qué quieren recaudar?</label><input type="text" name="Objetivo" required placeholder="Ej: Viaje de egresados"></div>
+                    <div class="form-group"><label>Participantes estimados</label><input type="number" name="Participantes" required></div>
                     <button type="submit" class="btn btn-verde" style="width: 100%;">Quiero recibir información</button>
                 </form>
             </div>
@@ -336,46 +241,15 @@
         <p style="font-size: 0.9rem; color: var(--durazno);">Hecho con amor, para endulzar tus momentos.</p>
     </footer>
 
-    <!-- LOGICA JAVASCRIPT -->
-    <script>
-        // Calculadora Interactiva para Instituciones
-        function calcularRecaudacion() {
-            const inputBandejas = document.getElementById('calc-bandejas').value;
-            const bandejas = parseInt(inputBandejas) || 0;
-            
-            // Constantes de precios basadas en los requerimientos
-            const precioVentaSugerido = 8000;
-            const margenGanancia = 2000;
-            
-            const totalVenta = bandejas * precioVentaSugerido;
-            const totalRecaudado = bandejas * margenGanancia;
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/5493549635123?text=Hola%20Yamila,%20estoy%20viendo%20la%20página%20de%20Dulce%20Travesía%20y%20me%20gustaría%20hacerte%20una%20consulta." class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="var(--blanco)" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.52 3.48A11.96 11.96 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.16 1.6 5.97L.13 24l6.19-1.62A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 21.98c-1.8 0-3.56-.48-5.1-1.4l-.37-.22-3.79.99.99-3.7-.24-.38A9.97 9.97 0 0 1 2.02 12c0-5.5 4.48-9.98 10-9.98s10 4.48 10 9.98-4.48 10-9.98 10z"/>
+            <path d="M17.48 14.3c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.68-2.1-.18-.3-.02-.46.13-.61.14-.14.3-.3.45-.46.15-.15.2-.25.3-.43.1-.18.05-.33-.03-.48-.07-.15-.68-1.63-.93-2.23-.24-.58-.48-.5-.68-.51-.18-.01-.38-.01-.58-.01-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.23 5.13 4.53.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35z"/>
+        </svg>
+    </a>
 
-            // Formateador de moneda ARS
-            const formatter = new Intl.NumberFormat('es-AR', {
-                style: 'currency',
-                currency: 'ARS',
-                maximumFractionDigits: 0
-            });
-
-            document.getElementById('calc-venta').innerText = formatter.format(totalVenta);
-            document.getElementById('calc-margen').innerText = formatter.format(totalRecaudado);
-        }
-
-        // Simulador de envío de formularios
-        function enviarRevendedor(e) {
-            e.preventDefault();
-            alert("¡Gracias por tu interés en Dulce Travesía! Recibimos tu solicitud para ser revendedor y nos pondremos en contacto para explicarte cómo comenzar.");
-            e.target.reset();
-        }
-
-        function enviarInstitucion(e) {
-            e.preventDefault();
-            alert("¡Excelente iniciativa! Hemos recibido los datos de su proyecto. Nos comunicaremos a la brevedad para coordinar los detalles.");
-            e.target.reset();
-        }
-
-        // Inicializar calculadora al cargar
-        window.onload = calcularRecaudacion;
-    </script>
+    <!-- ARCHIVO JS -->
+    <script src="script.js"></script>
 </body>
 </html>
