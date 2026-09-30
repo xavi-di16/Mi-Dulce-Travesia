@@ -12,7 +12,7 @@
     <header>
         <div class="logo-container">
             <!-- LOGO SVG -->
-            <svg viewBox="0 0 200 200" width="100%" height="100" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 200 200" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <path id="text-path-top" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" />
                 <text fill="#6B4E3D" font-family="serif" font-weight="900" font-size="20">
                     <textPath href="#text-path-top" startOffset="50%" text-anchor="middle">MI DULCE TRAVESÍA</textPath>
@@ -65,6 +65,14 @@
                 </g>
             </svg>
         </div>
+        
+        <!-- Botón Hamburguesa -->
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav class="nav-links">
             <a href="#revendedores">Revendedores</a>
             <a href="#recaudacion">Recaudación</a>
@@ -82,14 +90,33 @@
         </div>
     </section>
 
-    <!-- SOBRE DULCE TRAVESIA -->
+    <!-- SOBRE DULCE TRAVESIA Y EL PRODUCTO -->
     <section id="productos">
         <h2 class="section-title">¿Qué es Dulce Travesía?</h2>
-        <div class="about-box">
+        <div class="about-box" style="margin-bottom: 40px;">
             <p>Dulce Travesía es un emprendimiento de repostería artesanal que busca crear productos de calidad y, al mismo tiempo, desarrollar nuevas oportunidades de comercialización para personas, grupos e instituciones. Nuestro objetivo es construir relaciones comerciales simples, transparentes y beneficiosas para todas las partes.</p>
-            <br>
-            <h3 style="color: var(--verde-salvia);">Nuestra Bandeja Matera Incluye (12 porciones):</h3>
-            <p>3 Alfajores de maicena | 3 Porciones de budín de mandarina | 3 Porciones de pasta frola de membrillo | 3 Porciones de pasta frola de batata</p>
+        </div>
+
+        <h3 style="color: var(--verde-salvia); text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Conocé nuestra Bandeja Matera</h3>
+        
+        <div class="producto-showcase">
+            <!-- Imagen del Producto -->
+            <div class="producto-img-container">
+                <img src="bandeja.jpeg" alt="Bandeja Matera Dulce Travesía">
+            </div>
+            
+            <!-- Detalles del Producto -->
+            <div class="producto-detalles">
+                <h4>12 Porciones Variadas</h4>
+                <p>Frescas, caseras y perfectas para compartir en familia o con amigos. Cada bandeja está elaborada con ingredientes seleccionados y mucho amor.</p>
+                
+                <ul>
+                    <li><span>♥</span> 3 Alfajores de maicena</li>
+                    <li><span>♥</span> 3 Porciones de budín de mandarina</li>
+                    <li><span>♥</span> 3 Porciones de pasta frola de membrillo</li>
+                    <li><span>♥</span> 3 Porciones de pasta frola de batata</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -122,7 +149,7 @@
 
             <div class="form-container">
                 <h3 style="margin-bottom: 20px; color: var(--marron-claro);">Comenzá a revender</h3>
-                <form action="https://formsubmit.co/midulcetravesia9@gmail.com" method="POST" target="_blank">
+                <form action="https://formsubmit.co/xadilorenzo@gmail.com" method="POST" target="_blank">
                     <input type="hidden" name="_subject" value="NUEVA SOLICITUD: Revendedor">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://xavi-di16.github.io/Mi-Dulce-Travesia/">
@@ -186,7 +213,7 @@
 
             <div class="form-container">
                 <h3 style="margin-bottom: 20px; color: var(--verde-salvia);">Registrar Proyecto</h3>
-                <form action="https://formsubmit.co/midulcetravesia9@gmail.com" method="POST" target="_blank">
+                <form action="https://formsubmit.co/xadilorenzo@gmail.com" method="POST" target="_blank">
                     <input type="hidden" name="_subject" value="NUEVA SOLICITUD: Proyecto de Recaudación">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://xavi-di16.github.io/Mi-Dulce-Travesia/">
